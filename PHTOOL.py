@@ -1,3 +1,4 @@
+
 import json
 import os,time
 import cloudscraper
@@ -10,11 +11,6 @@ from bs4 import BeautifulSoup
 import time
 from colorama import Fore, init
 import sys
-import requests, os, base64, json
-from datetime import datetime
-from time import sleep
-import requests, json, os
-from datetime import datetime
 
 RESET = "\033[0m"
 BOLD = "\033[1m"
@@ -76,7 +72,6 @@ def thanhngang(so):
     print('')
 
 def kiem_tra_mang():
-
     try:
         socket.create_connection(("8.8.8.8", 53), timeout=3)
     except OSError:
@@ -85,18 +80,18 @@ def kiem_tra_mang():
 kiem_tra_mang()
 
 banner = f"""
-\033[1;37m\033[1m██████  ██   ██     ████████  ██████   ██████  ██                                            
-\033[1;37m\033[1m██   ██ ██   ██        ██    ██    ██ ██    ██ ██                           
-\033[1;32m\033[1m██████  ███████        ██    ██    ██ ██    ██ ██                 
-\033[1;34m\033[1m██      ██   ██        ██    ██    ██ ██    ██ ██                  
+\033[1;37m\033[1m██████  ██   ██     ████████  ██████   ██████  ██                                           
+\033[1;33m\033[1m██   ██ ██   ██        ██    ██    ██ ██    ██ ██                
+\033[1;32m\033[1m██████  ███████        ██    ██    ██ ██    ██ ██                           
+\033[1;34m\033[1m██      ██   ██        ██    ██    ██ ██    ██ ██               
 \033[1;30m\033[1m██      ██   ██        ██     ██████   ██████  ███████ 
 """
 for X in banner:
   sys.stdout.write(X)
   sys.stdout.flush() 
   sleep(0.000125)
-  os.system('cls' if os.name== 'nt' else 'clear')
-print(banner)
+
+os.system('cls' if os.name== 'nt' else 'clear')
 sleep(1.2)
 
     # Nhập auth golike
@@ -110,16 +105,16 @@ t = open("token.txt","r")
 author = Authorization.read()
 token = t.read()
 if author == "":
-  author = input("\033[1;32m 💸 NHẬP AUTHORIZATION GOLIKE : \033[1;33m")
-  token = input("\033[1;32m💸  NHẬP TOKEN (T CỦA GOLIKE): \033[1;33m")
+  author = input("\033[1;32m  NHẬP AUTHORIZATION : \033[1;33m")
+  token = input("\033[1;32m  NHẬP T: \033[1;33m")
   Authorization = open("Authorization.txt","w")
   t = open("token.txt","w")
   Authorization.write(author)
   t.write(token)
 else:
   print("\x1b[38;5;207m==================================================")
-  print(f"\x1b[38;2;255;0;0mNhập \033[1;39m[\033[1;35m1\033[1;39m]\x1b[38;2;255;0;0m Để vào Tool (Nếu đã nhập auth thì chọn 1 nhé)")
-  print(f"\033[1;32mNhập \033[1;39m[\033[1;35m2\033[1;39m] \033[1;32mđể thay auth golike mới ")
+  print(f"\x1b[38;2;255;0;0mNhập \033[1;39m[\033[1;35m1\033[1;39m]\x1b[38;2;255;0;0m Để vào Tool (Nếu đã nhập authorzation thì chọn 1 )")
+  print(f"\033[1;32mNhập \033[1;39m[\033[1;35m2\033[1;39m] \033[1;32mđể thay authorzation mới ")
   print("\x1b[38;5;207m==================================================")
   
   select = input(f"\033[1;32mNhập số : ")
@@ -134,8 +129,8 @@ else:
      sleep(0.03)  # Điều chỉnh thời gian chờ nếu cần
     os.system('cls' if os.name== 'nt' else 'clear')
     print(banner)
-    author = input("\033[1;33mNhập Auth Golike Mới : ")
-    token = input("\033[1;32mNhập T Golike Mới : \033[1;33m")
+    author = input("\033[1;33mNhập Authorzation Mới : ")
+    token = input("\033[1;32mNhập T Mới : \033[1;33m")
     Authorization = open("Authorization.txt","w")
     t = open("token.txt","w")
     Authorization.write(author)
@@ -144,7 +139,7 @@ Authorization.close()
 t.close()
 os.system('cls' if os.name== 'nt' else 'clear')
 print(banner)
-print("\033[1;32mDanh Sách Acc Tik Tok Hiện Có 🍉")
+print("\033[1;32mDanh Sách Acc Tik Tok Hiện Có ")
 print("\033[97m==================================")
 headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -238,15 +233,15 @@ chontktiktok = chonacc()
 
 def dsacc():
   if chontktiktok.get("status") != 200:  
-    print("\033[1;31mAuthorization hoăc T sai 😂")
+    print("\033[1;31mAuthorization hoăc T sai ")
     quit()
   for i in range(len(chontktiktok["data"])):
-    print(f'\033[1;33m[{i+1}]\033[1;32m {chontktiktok["data"][i]["nickname"]} \033[1;20m|\033[1;32m🍉\033[1;20m Online')
+    print(f'\033[1;33m[{i+1}]\033[1;32m {chontktiktok["data"][i]["nickname"]} \033[1;20m|\033[1;32m\033[1;20m Online')
 dsacc() 
 print("\033[97m==================================")
 while True:
   try:
-    luachon = int(input("\033[1;32mChọn tài khoản TIKTOK bạn muốn chạy 🤑: \033[1;33m"))
+    luachon = int(input("\033[1;32mChọn tài khoản TIKTOK bạn muốn chạy : \033[1;33m"))
     while luachon > len((chontktiktok)["data"]):
       luachon = int(input("\033[1;31mAcc Này Không Có Trong Danh Sách Cấu Hình , Nhập Lại : \033[1;33m"))
     account_id = chontktiktok["data"][luachon - 1]["id"]
@@ -256,14 +251,14 @@ while True:
 while True:
   try:
     os.system('cls' if os.name== 'nt' else 'clear')
-    delay = int(input(f"\033[1;32mDelay thực hiện job 🍉 : \033[1;33m"))
+    delay = int(input(f"\033[1;32mDelay thực hiện job : \033[1;33m"))
     break
   except:
     print("\033[1;31m Sai Định Dạng ")
 while True:
   try: 
     os.system('cls' if os.name== 'nt' else 'clear')
-    doiacc = int(input(f"\033[1;32mThất bại bao nhiêu lần thì đổi acc tiktok 🍉: \033[1;33m"))
+    doiacc = int(input(f"\033[1;32mThất bại bao nhiêu lần thì đổi acc tiktok : \033[1;33m"))
     break
   except:
     print("\033[1;31mNhập Vào 1 Số ")  
@@ -277,7 +272,7 @@ print("\033[1;36mNhập \033[1;39m[\033[1;36m3\033[1;39m] Thực Hiện Cả 2 N
 
 while True:
     try:
-        loai_nhiem_vu = int(input("\033[1;32mChọn loại nv cần kiếm tiền 🍉 : \033[1;33m "))
+        loai_nhiem_vu = int(input("\033[1;32mChọn loại nv cần kiếm tiền : \033[1;33m "))
         if loai_nhiem_vu in [1, 2, 3]:
             break
         else:
@@ -293,7 +288,7 @@ print("")
 print(f"\033[1;36mNhập \033[1;39m[\033[1;36m1\033[1;39m] Để Sử Dụng \033[1;32mADB ✔️")
 print(f"\033[1;36mNhập \033[1;39m[\033[1;36m2\033[1;39m] Để Dùng \033[1;35mAutoClick No ADB ❌ ")
 
-adbyn = input(f"\033[1;32mNhập lựa chọn 🍉 :\033[1;33m ")
+adbyn = input(f"\033[1;32mNhập lựa chọn :\033[1;33m ")
 
 if adbyn == "1":
     def setup_adb():
@@ -385,7 +380,7 @@ while True:
     if checkdoiacc == doiacc:
         dsaccloi.append(chontktiktok["data"][luachon - 1]["nickname"])
         print(f"{Fore.WHITE}══════════════════════════════════════════════════════")
-        print(f"\033[1;31m😭 Acc Tiktok {dsaccloi} gặp vấn đề hoặc bị nhả !!!")
+        print(f"\033[1;31m Acc Tiktok {dsaccloi} gặp vấn đề hoặc bị nhả !!!")
         print(f"{Fore.WHITE}══════════════════════════════════════════════════════")
         dsacc()
         while True:
@@ -402,7 +397,7 @@ while True:
                 break  
             except:
                 print("\033[1;31mSai Định Dạng !!!")
-    print('\033[1;35m ĐANG TÌM JOB KIẾM TIỀN 🍉 ', end="\r")
+    print('\033[1;35m ĐANG TÌM JOB KIẾM TIỀN  ', end="\r")
     max_retries = 3
     retry_count = 0
     nhanjob = None
@@ -459,11 +454,11 @@ while True:
     # Đếm ngược delay
     for remaining_time in range(delay, -1, -1):
         color = "\033[1;35m" if remaining_time % 2 == 0 else "\033[1;36m"
-        print(f"\r{color} PhuocDEV Kiếm Tiền Online 🍉 [{remaining_time}s]   ", end="")
+        print(f"\r{color} PH-TOOL Kiếm Tiền Online  [{remaining_time}s]   ", end="")
         time.sleep(1)
     print("\r                          \r", end="") 
     color = "\033[1;35m" if remaining_time % 2 == 0 else "\033[1;36m"
-    print(f"{color} Đang Nhận Tiền Lần 1 🍉... ",end = "\r")
+    print(f"{color} Đang Nhận Tiền Lần 1 ... ",end = "\r")
 
     # Hoàn thành job
     max_attempts = 2
@@ -512,7 +507,7 @@ while True:
         try:
             baoloi(ads_id, object_id, account_id, nhanjob["data"]["type"])
             print("                                              ", end="\r")
-            print("\033[1;35m Bỏ qua job lỗi thành công 🍉", end="\r")
+            print("\033[1;35m Bỏ qua job lỗi thành công ", end="\r")
             os.system('cls' if os.name == 'nt' else 'clear')
             print(banner)
             print(" \033[1;31mSTT \033[1;39m║ \033[1;33m THỜI GIAN \033[1;39m ║ \033[1;32mSUCCESS \033[1;39m║ \033[1;34mJOB TYPE \033[1;39m║ \033[1;36mTIỀN LOẠI JOB \033[1;39m║ \033[1;33mTỔNG ✔️")
